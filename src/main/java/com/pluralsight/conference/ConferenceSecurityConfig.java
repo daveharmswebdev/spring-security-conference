@@ -1,6 +1,5 @@
 package com.pluralsight.conference;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -45,7 +44,16 @@ public class ConferenceSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().dataSource(dataSource);
+//        auth.jdbcAuthentication().dataSource(dataSource);
+        auth.ldapAuthentication()
+                .userDnPatterns("uid={0}, ou=people")
+                .groupSearchBase("ou=groups")
+                .contextSource()
+                .url("ldap://localhost:8389/dc=pluralsight, dc=com")
+                .and()
+                .passwordCompare()
+                .passwordEncoder(passwordEncoder())
+                .passwordAttribute("userPassword");
     }
 
     @Bean
