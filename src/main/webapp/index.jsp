@@ -1,3 +1,5 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -32,6 +34,7 @@
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
   <a class="navbar-brand" href="#">Get Started</a>
+  <a class="navbar-brand" href="<c:out value='perform_logout'/>">Logout</a>
 </nav>
 
 <main role="main" class="container">
@@ -48,6 +51,7 @@
   </div>
 </main>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+</body>
 </html>
 
 

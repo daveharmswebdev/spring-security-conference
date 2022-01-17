@@ -13,7 +13,7 @@ class ConferenceApplicationTests {
 
 	@Test
 	void contextLoads() {
-		System.out.println("pass encoded is ---------- " + encoder.encode("pass"));
+		System.out.println(encoder.encode("pass"));
 	}
 
 }
